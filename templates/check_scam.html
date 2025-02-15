@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scam Check</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Scam Check</h2>
+        <p>Check if your message is a scam.</p>
+
+        <form method="POST">
+            <label for="message">Enter your message:</label><br>
+            <textarea id="message" name="message" rows="6" cols="50" required></textarea><br><br>
+            <a href="#" class="btn" onclick="this.closest('form').submit(); return false;">Check</a>
+        </form>
+
+        {% if result %}
+            <div class="result {% if result == 'spam' %}scam{% else %}not-scam{% endif %}">
+                <h3>Result: {{ result }}</h3>
+            </div>
+        {% endif %}
+        
+        <a href="{{ url_for('welcome') }}" class="btn">Go back to Welcome Page</a>
+    </div>
+</body>
+</html>

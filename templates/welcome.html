@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container welcome">
+        <h2>Welcome, {{ email }}!</h2>
+        <p>You can now use the main functionality of the app.</p>
+        <a href="{{ url_for('check_scam') }}" class="btn">Check your email for scam</a><br>
+        <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+    </div>
+</body>
+</html>
